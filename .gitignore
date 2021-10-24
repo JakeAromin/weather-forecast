@@ -1,0 +1,6 @@
+coverage
+dist
+node_modules
+
+#We usually don't include .env but will add it as this time only
+#.env
