@@ -1,6 +1,11 @@
 coverage
 dist
 node_modules
+.nyc_output
+test-results
+clover.xml
+lcov.info
+lcov-report/
 
 #We usually don't include .env but will add it as this time only
 #.env

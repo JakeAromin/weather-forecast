@@ -1,12 +1,12 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
-
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { forecastRouter } from './routers/forecast.router';
 //import { errorHandler } from './middleware/error.middleware';
 //import { notFoundHandler } from './middleware/not-found.middleware';
+
+dotenv.config();
 
 if (!process.env.PORT) {
     process.exit(1);

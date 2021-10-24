@@ -1,0 +1,22 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "mocha.sideBarOptions": null,
+    "diffEditor.codeLens": true,
+    "editor.minimap.showSlider": "always",
+    "javascript.referencesCodeLens.showOnAllFunctions": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.referencesCodeLens.showOnAllFunctions": true,
+    "javascript.referencesCodeLens.enabled": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "mochaExplorer.configFile": "",
+    "mochaExplorer.files": "tests/**/*.ts",
+    "testExplorer.codeLens": true,
+    "mochaExplorer.debuggerConfig": null,
+    "mochaExplorer.timeout": 30000,
+    "mochaExplorer.exit": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always"
+}

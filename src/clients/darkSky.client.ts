@@ -5,20 +5,22 @@ import { Location } from '../models/location.type';
 import { ErrorMessage } from '../utils/types.util';
 import { DARKSKY_TIMEOUT, DARKSKY_UNITS, CUSTOM_HEADER, HTTP_STATUS_CODE } from '../utils/constants';
 
-const config: AxiosRequestConfig = {
-    baseURL: `${process.env.DARKSKY_BASE_URL}/${process.env.DARKSKY_KEY}`,
-    timeout: Number(process.env.DARKSKY_TIMEOUT) || DARKSKY_TIMEOUT,
-    headers: {'X-Custom-Header': CUSTOM_HEADER}
-}; 
-let axiosInstance = axios.create(config);
-
 export const DarkSkyClient = () => ({
+
+    getConfig(): AxiosRequestConfig {
+        const config: AxiosRequestConfig = {
+            baseURL: `${process.env.DARKSKY_BASE_URL}/${process.env.DARKSKY_KEY}`,
+            timeout: Number(process.env.DARKSKY_TIMEOUT) || DARKSKY_TIMEOUT,
+            headers: {'X-Custom-Header': CUSTOM_HEADER}
+        };
+        return config;
+    },
 
     async getForecast(location: Location): Promise<Forecast | ErrorMessage> {
         const url = urljoin(`/${location.latitude},${location.longitude}`, `?units=${process.env.DARKSKY_UNITS || DARKSKY_UNITS}`);
 
         let result: any;
-        await axiosInstance.get(url)
+        await axios.get(url, this.getConfig())
         .then( (response: AxiosResponse<any, null>) => {
             const currentlyData: any = response.data.currently;
             const currently: Currently = {
