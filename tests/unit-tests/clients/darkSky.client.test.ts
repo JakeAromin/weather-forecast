@@ -1,9 +1,9 @@
 import * as dotenv from 'dotenv';
-import { DarkSkyClient } from '../../src/clients/darkSky.client';
-import { Location } from '../../src/models/location.type';
+import { DarkSkyClient } from '../../../src/clients/darkSky.client';
+import { Location } from '../../../src/models/location.type';
 import { expect } from 'chai';
 import { AxiosRequestConfig } from 'axios';
-import { HourData } from '../../src/models/forecast.type';
+import { HourData } from '../../../src/models/forecast.type';
 
 
 describe('DarkSkyClient tests', () => {
@@ -51,7 +51,7 @@ describe('DarkSkyClient tests', () => {
         expect(result.statusCode).to.be.eq(400);
     });
 
-    it('getForecast should return an error message with response status', async () => { 
+    it('getForecast should return success with response status', async () => { 
         setEnv();
 
         //valid location
@@ -64,6 +64,7 @@ describe('DarkSkyClient tests', () => {
         expect(result.summary).not.to.be.null;
         expect(result.windSpeed).not.to.be.null;
         expect(result.hourly).not.to.be.null;
+        expect(result.hourly).to.be.an('array');
     });
 
 });

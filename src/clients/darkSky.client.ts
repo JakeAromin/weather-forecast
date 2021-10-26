@@ -7,6 +7,11 @@ import { DARKSKY_TIMEOUT, DARKSKY_UNITS, CUSTOM_HEADER, HTTP_STATUS_CODE } from 
 
 export const DarkSkyClient = () => ({
 
+    /**
+     * Prepares AxiosRequestConfig
+     * 
+     * @returns config
+     */
     getConfig(): AxiosRequestConfig {
         const config: AxiosRequestConfig = {
             baseURL: `${process.env.DARKSKY_BASE_URL}/${process.env.DARKSKY_KEY}`,
@@ -16,6 +21,12 @@ export const DarkSkyClient = () => ({
         return config;
     },
 
+    /**
+     * Calls Darksky POST API to retrieve the weather forecast of a location.
+     * 
+     * @param location 
+     * @returns  Forecast | ErrorMessage
+     */
     async getForecast(location: Location): Promise<Forecast | ErrorMessage> {
         const url = urljoin(`/${location.latitude},${location.longitude}`, `?units=${process.env.DARKSKY_UNITS || DARKSKY_UNITS}`);
 

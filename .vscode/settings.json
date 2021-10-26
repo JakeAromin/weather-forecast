@@ -15,7 +15,8 @@
     "mochaExplorer.files": "tests/**/*.ts",
     "testExplorer.codeLens": true,
     "mochaExplorer.debuggerConfig": null,
-    "mochaExplorer.timeout": 30000,
+    "mochaExplorer.require": "ts-node/register",
+    "mochaExplorer.timeout": 5000,
     "mochaExplorer.exit": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always"
