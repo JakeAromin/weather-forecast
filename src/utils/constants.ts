@@ -12,3 +12,5 @@ export enum HTTP_STATUS_CODE {
     NOT_FOUD = 404,
     SERVER_ERROR = 500
 };
+
+export const HTTP_CACHE_MINS = '5 minutes';
